@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import { Poppins } from 'next/font/google'
-import { ConfigProvider } from 'antd';
-import theme from '../theme/theme';
+import {NextUIProvider} from "@nextui-org/react";
 
 
 const poppins = Poppins({
@@ -11,10 +10,10 @@ const poppins = Poppins({
 
 export default function App({ Component, pageProps }) {
   return (
-    <ConfigProvider theme={theme} >
+    <NextUIProvider>
       <main className={poppins.className}>
         <Component {...pageProps} />
       </main>
-    </ConfigProvider>
+    </NextUIProvider>
     )
 }
