@@ -1,0 +1,68 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.PhoneInputInput{
+  @apply border-white bg-transparent outline-none p-5 text-white caret-blue-500
+}
+
+.PhoneInput{
+  @apply border-b-1 border-white caret-blue-500 text-white focus:border-b-1 border-[caret-blue-500]
+}
+.MuiFormControl-root {
+  @apply hover:ring-0 hover:outline-0 hover:border-b-0
+}
+.MuiInputBase-root{
+  @apply text-white border-b-1 border-white bg-transparent hover:bg-transparent focus:bg-transparent hover:ring-0 hover:outline-0
+}
+.MuiInput-input{
+  @apply text-white border-b-1 border-white caret-blue-500 focus:bg-transparent hover:ring-0 hover:outline-0 hover:border-b-0 hover:underline-offset-0
+}
+.Mui-focused{
+  @apply  ring-0 outline-0 border-b-0 underline-offset-0
+}
+.sidebar_content__item{
+  @apply flex items-center ps-5 py-3 cursor-pointer  rounded-l-3xl my-3
+}
+.sidebar_content__item__accordian{
+  @apply flex items-center rounded-l-3xl p-0
+}
+.sidebar_content__item span{
+  @apply text-[15px] ms-5 
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
+  @apply text-black font-semibold
+}
+.css-1c35hjw-MuiPaper-root-MuiAccordion-root{
+  @apply shadow-none bg-transparent text-white
+
+}
+:where(.css-dev-only-do-not-override-lbxpig).ant-pagination .ant-pagination-item-active a{
+  @apply text-[white] bg-[#00ADEF] border-none
+}
+.MuiAccordionSummary-expandIconWrapper{
+  @apply text-white
+}
+.text-field{
+  @apply mx-2 my-2 border-[#869497] w-[300px] text-black
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root, .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+  @apply border-none outline-none ring-0
+}
+.anticon{
+  @apply text-[#00ADEF]
+}
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
