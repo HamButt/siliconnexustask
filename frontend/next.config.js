@@ -9,7 +9,7 @@ module.exports = (phase) => {
     reactStrictMode: false,
     images: { unoptimized: true },
     env: {
-      baseUrl: isDev ? 'http://localhost:5000' : 'https://siliconnexustask-backend.vercel.app',
+      baseUrl: isDev ? 'http://localhost:5000' : 'https://redemy.com',
     },
     // swcMinify: false,
   }
