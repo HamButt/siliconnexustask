@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const Signup = ({setHandleSingup}) => {
     const [showPassword, setShowPassword] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(false);
     const [error, setError] = React.useState("");
     const [matchMessage, setMatchMessage] = React.useState("");
     const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
@@ -30,11 +31,14 @@ const Signup = ({setHandleSingup}) => {
     if (name === "confirmPassword") {
       if (value === formData.password) {
         setMatchMessage("Password Matched!");
+        setError("");
       } else {
         setMatchMessage("Password does not match");
+        setError("");
       }
     } else {
       setMatchMessage(""); // Reset the message when typing in the password field
+      setError("");
     }
   };
 
@@ -51,17 +55,22 @@ const Signup = ({setHandleSingup}) => {
     axios.post(`${process.env.baseUrl}/auth/signUp`, formData)
     .then((res) => {
       if(res.data.success){
-
+        setIsLoading(true);
         setHandleSingup(false)
       }
       setError("");
+      setIsLoading(false);
     }).catch((err) =>{
       console.log(err);
       setError(err.response.data.error)
+      setIsLoading(false);
       setFormData({
         email: '',
         phoneNumber: '',
+        password: '',
+        confirmPassword: '',
       });
+      setMatchMessage("")
     })
   };
   
@@ -134,7 +143,7 @@ const Signup = ({setHandleSingup}) => {
         {matchMessage && <small className=' text-xml mt-2' style={{color:matchMessage === "Password Matched!" ? "green" : "red"}} >{matchMessage}</small>}
 
         <div className='text-center'>
-          <Button variant='contained' className='bg-[#00ADEF] rounded-[8px] text-white w-[100%] font-[15px] mt-6 py-3 capitalize' type="submit">Sign up</Button>
+          <Button variant='contained' className='bg-[#00ADEF] rounded-[8px] text-white w-[100%] font-[15px] mt-6 py-3 capitalize' type="submit">{isLoading ? "Signing Up..." : "Sign Up"}</Button>
           <p className='mt-2 text-white text-sm '>Have a account? <strong className='cursor-pointer' onClick={() => setHandleSingup(false)}>Log in</strong></p>
         </div>
     </form>
