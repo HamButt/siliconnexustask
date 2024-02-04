@@ -44,6 +44,7 @@ const Signup = ({setHandleSingup}) => {
 
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     if(formData.password !== formData.confirmPassword){
       setError("Password does not match");
       setFormData({
@@ -55,15 +56,13 @@ const Signup = ({setHandleSingup}) => {
     axios.post(`${process.env.baseUrl}/auth/signUp`, formData)
     .then((res) => {
       if(res.data.success){
-        setIsLoading(true);
         setHandleSingup(false)
       }
       setError("");
       setIsLoading(false);
     }).catch((err) =>{
-      console.log(err);
-      setError(err.response.data.error)
       setIsLoading(false);
+      setError(err.response.data.error)
       setFormData({
         email: '',
         phoneNumber: '',
