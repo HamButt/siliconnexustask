@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.json())
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://siliconnexustask-frontend.vercel.app',
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true
 };
